@@ -14,13 +14,14 @@
       // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyBvPu2S5_1nyLgIG4pJos6dHBEZ5QcBsQ0",
-        authDomain: "your-auth-domain.firebaseapp.com",
+        authDomain: "lights-on-and-off.firebaseapp.com",
         databaseURL:
           "https://lights-on-and-off-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "your-project-id",
-        storageBucket: "your-storage-bucket.appspot.com",
-        messagingSenderId: "your-messaging-sender-id",
-        appId: "your-app-id",
+        projectId: "lights-on-and-off",
+        storageBucket: "lights-on-and-off.appspot.com",
+        messagingSenderId: "957378400276",
+        appId: "1:957378400276:web:1bd1854ecc587359b31701",
+        measurementId: "G-0PD2LVZVVE",
       };
 
       // Initialize Firebase
@@ -28,11 +29,27 @@
       const database = firebase.database();
 
       function turnOn() {
-        database.ref("/LED_STATUS").set("ON");
+        database
+          .ref("/LED_STATUS")
+          .set("ON")
+          .then(() => {
+            console.log("LED turned ON");
+          })
+          .catch((error) => {
+            console.error("Error: ", error);
+          });
       }
 
       function turnOff() {
-        database.ref("/LED_STATUS").set("OFF");
+        database
+          .ref("/LED_STATUS")
+          .set("OFF")
+          .then(() => {
+            console.log("LED turned OFF");
+          })
+          .catch((error) => {
+            console.error("Error: ", error);
+          });
       }
     </script>
   </body>
