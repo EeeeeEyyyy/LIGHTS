@@ -11,45 +11,20 @@
     <button onclick="turnOff()">Turn OFF</button>
 
     <script>
-      // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyBvPu2S5_1nyLgIG4pJos6dHBEZ5QcBsQ0",
-        authDomain: "lights-on-and-off.firebaseapp.com",
-        databaseURL:
-          "https://lights-on-and-off-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "lights-on-and-off",
-        storageBucket: "lights-on-and-off.appspot.com",
-        messagingSenderId: "957378400276",
-        appId: "1:957378400276:web:1bd1854ecc587359b31701",
-        measurementId: "G-0PD2LVZVVE",
+        databaseURL: "https://lights-on-and-off-default-rtdb.asia-southeast1.firebasedatabase.app"
       };
 
-      // Initialize Firebase
       const app = firebase.initializeApp(firebaseConfig);
       const database = firebase.database();
 
       function turnOn() {
-        database
-          .ref("/LED_STATUS")
-          .set("ON")
-          .then(() => {
-            console.log("LED turned ON");
-          })
-          .catch((error) => {
-            console.error("Error: ", error);
-          });
+        database.ref("/LED_STATUS").set("ON");
       }
 
       function turnOff() {
-        database
-          .ref("/LED_STATUS")
-          .set("OFF")
-          .then(() => {
-            console.log("LED turned OFF");
-          })
-          .catch((error) => {
-            console.error("Error: ", error);
-          });
+        database.ref("/LED_STATUS").set("OFF");
       }
     </script>
   </body>
