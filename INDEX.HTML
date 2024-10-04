@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LED Control</title>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
+  </head>
+  <body>
+    <h1>Control LED</h1>
+    <button onclick="turnOn()">Turn ON</button>
+    <button onclick="turnOff()">Turn OFF</button>
+
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyBvPu2S5_1nyLgIG4pJos6dHBEZ5QcBsQ0",
+        authDomain: "your-auth-domain.firebaseapp.com",
+        databaseURL:
+          "https://lights-on-and-off-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "your-project-id",
+        storageBucket: "your-storage-bucket.appspot.com",
+        messagingSenderId: "your-messaging-sender-id",
+        appId: "your-app-id",
+      };
+
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+
+      function turnOn() {
+        database.ref("/LED_STATUS").set("ON");
+      }
+
+      function turnOff() {
+        database.ref("/LED_STATUS").set("OFF");
+      }
+    </script>
+  </body>
+</html>
